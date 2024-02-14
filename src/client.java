@@ -9,14 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 import javax.swing.*;
 public class client implements ActionListener{
     JTextField  text;
@@ -131,6 +129,7 @@ public class client implements ActionListener{
         try{
             String str = text.getText();
             JPanel out = formatLabel(str);
+          
             p2.setLayout(new BorderLayout());
     
             
@@ -174,6 +173,28 @@ public class client implements ActionListener{
         
         return panel;
     }
+    public static JPanel formatLabelr(String out) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        
+        JLabel output = new JLabel(out);
+        output.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        output.setBackground(new Color(255,100,100));
+        output.setOpaque(true);
+        output.setBorder(new EmptyBorder(1, 15, 15, 20));
+        
+        panel.add(output);
+        
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        
+        JLabel time = new JLabel();
+        time.setText(sdf.format(cal.getTime()));
+        
+        panel.add(time);
+        
+        return panel;
+    }
     public static void main(String[] args) {
         new client();
 
@@ -185,7 +206,7 @@ public class client implements ActionListener{
             while(true){
                 p2.setLayout(new BorderLayout());
                 String msg = din.readUTF();
-                JPanel panel2 = formatLabel(msg);
+                JPanel panel2 = formatLabelr(msg);
                 JPanel left = new JPanel(new BorderLayout());
                 left.add(panel2,BorderLayout.LINE_START);
                 vertical.add(left);

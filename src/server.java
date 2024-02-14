@@ -174,6 +174,28 @@ public class server implements ActionListener{
         
         return panel;
     }
+    public static JPanel formatLabelr(String out) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        
+        JLabel output = new JLabel(out);
+        output.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        output.setBackground(Color.RED);
+        output.setOpaque(true);
+        output.setBorder(new EmptyBorder(1, 15, 15, 20));
+        
+        panel.add(output);
+        
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        
+        JLabel time = new JLabel();
+        time.setText(sdf.format(cal.getTime()));
+        
+        panel.add(time);
+        
+        return panel;
+    }
     public static void main(String[] args) {
         new server();
         try{
