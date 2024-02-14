@@ -127,8 +127,7 @@ public class server implements ActionListener{
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     @Override
-   
-    ////ndskndsj
+   //ghbjnmk,.
 
 
 
