@@ -127,6 +127,11 @@ public class server implements ActionListener{
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     @Override
+   
+    ////ndskndsj
+
+
+
     public void actionPerformed(ActionEvent ae){
         String str = text.getText();
         JPanel out = formatLabel(str);
